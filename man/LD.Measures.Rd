@@ -80,7 +80,7 @@ If Supinfo=TRUE, then the last six columns contain information for both loci : t
 
 \references{Mangin et al, 2011,  Novel Measures of linkage Disequilibrium that correct for the bias due to population structure and relatedness, Heredity.}
 
-\author{David Desousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
+\author{David Desrousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
 
 
 
@@ -91,7 +91,7 @@ Geno<-data.test[[1]]
 Geno.test<-Geno[,1:5]
 V.WAIS<-data.test[[2]]
 S.2POP<-data.test[[3]]
-LD<-LD.Measures(donnees=Geno.test,V=V.WAIS,S=S.2POP,data ="G",supinfo=TRUE)
+LD<-LD.Measures(Geno.test,V=V.WAIS,S=S.2POP,data ="G",supinfo=TRUE)
 LD
 }
 

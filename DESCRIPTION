@@ -1,10 +1,10 @@
 Package: LDcorSV
 Type: Package
 Title: LDcorSV
-Version: 1.0
-Date: 2011-09-26
+Version: 1.1
+Date: 2012-01-30
 Depends: MASS
-Author: David Desousseaux, Aurelie Siberchicot, Christine
+Author: David Desrousseaux, Aurelie Siberchicot, Christine
         Cierco-Ayrolles and Brigitte Mangin
 Maintainer: <Brigitte.Mangin@toulouse.inra.fr>
 Description: The package provides a set of functions which aim is to
@@ -16,6 +16,6 @@ Description: The package provides a set of functions which aim is to
         of the sample).
 License: GPL (>= 2)
 LazyLoad: yes
-Packaged: 2011-09-26 15:30:08 UTC; mangin
+Packaged: 2012-01-30 12:41:42 UTC; mangin
 Repository: CRAN
-Date/Publication: 2011-09-27 13:03:13
+Date/Publication: 2012-01-30 14:01:42

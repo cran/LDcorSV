@@ -41,7 +41,8 @@ Geno
 V.WAIS=data.test[[2]]
 V.WAIS
 
-#Structure population matrix of 91 plants of Vitis vinifera in two sub-populations
+#Structure population matrix of 91 plants of Vitis vinifera 
+# in two sub-populations
 S.2POP=data.test[[3]]
 S.2POP
 

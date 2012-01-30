@@ -22,14 +22,14 @@
 
 \tabular{ll}{
 Package: \tab LDcorSV\cr
-Version: 1.0
-Creation date: \tab 2011-09-26\cr
+Version: 1.1
+Creation date: \tab 2012-01-30\cr
 }
 
 
 }
 
-\author{David Desousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin 
+\author{David Desrousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin 
 
 
 Maintainer: Brigitte.Mangin@toulouse.inra.fr

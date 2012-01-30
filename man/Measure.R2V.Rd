@@ -32,11 +32,11 @@ No missing value.}
 
 	}
 
-\value{The returned value is the estimated value of the measure of linkage disequilibrium corrected by the relatedness of genotyped individuals.}
+\value{The returned value is the estimated value of the measure of linkage disequilibrium corrected by the relatedness of genotyped individuals or NA if less than 5 individuals have non-missing data at both loci.}
 
 
 \references{Mangin et al, 2011,  Novel measures of linkage disequilibrium that correct for the bias due to population structure and relatedness.}
-\author{David Desousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
+\author{David Desrousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
 \seealso{}
 
 

@@ -29,14 +29,14 @@ if(is.null(rownames(donnees))==TRUE | is.null(colnames(donnees))==TRUE)
 mark<-colnames(donnees)
 
 
-if(all(is.wholenumber(na.omit(donnees))==FALSE))
+if(all(is.wholenumber(donnees[!is.na(donnees)])==FALSE))
 {return(print("ERROR: haplotype or genotype data must be a numeric matrix with integer values"))}
 
-if( data=="G"){if(max(na.omit(donnees))>2 | min(na.omit(donnees))<0)
+if( data=="G"){if(max(donnees[!is.na(donnees)])>2 | min( donnees[!is.na(donnees)] )<0)
 {return(print("ERROR: genotype data must be a numeric matrix with integer values between 0 and 2"))}}
 
 
-if( data=="H"){if(max(na.omit(donnees))>1 | min(na.omit(donnees))<0)
+if( data=="H"){if(max(donnees[!is.na(donnees)])>1 | min(donnees[!is.na(donnees)])<0)
 {return(print("ERROR: haplotype must be a numeric matrix with integer values between 0 and 1"))}}
 
 if(length(unique(is.na(S)))==2)
@@ -159,6 +159,7 @@ options(warn=-1)
 M.r2<-Measure.R2(biloci=lij)
 options(warn=0)			
 
+#print(c("i=",i,"j=",j))
 
 if (S.yes==FALSE){M.r2s<-Measure.R2S(biloci=lij,struc=S)}
 if (V.yes==FALSE){M.r2v<-Measure.R2V(biloci=lij,V=V)}
@@ -215,4 +216,3 @@ if (supinfo==TRUE){Info<-data.frame(MAF.loc1,heterofreq.loc1,NAfreq.loc1,MAF.loc
 result<-as.data.frame(result)
 result
 }
-

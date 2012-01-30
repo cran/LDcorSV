@@ -25,4 +25,3 @@ Info=c(MAF,Freq_hetero,Freq_NA)
 names(Info)=c("MAF","Freq_hetero","Freq_NA")
 Info
 }
-
