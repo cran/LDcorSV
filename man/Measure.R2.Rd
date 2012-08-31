@@ -25,7 +25,7 @@ Columns names correspond to the  ID of markers.}
 	  }
 
 
-\details{}
+
 
 \value{The returned value is the estimated value of the usual measure of linkage disequilibrium (\eqn{r^2}) or NA if less than 5 individuals have non-missing data at both loci}
 
@@ -33,7 +33,6 @@ Columns names correspond to the  ID of markers.}
 
 \author{David Desrousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
 
-\seealso{}
 
 
 

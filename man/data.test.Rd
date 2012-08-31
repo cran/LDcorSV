@@ -26,7 +26,7 @@ A list containing the following components:
 
 
 }
-\details{}
+
 
 
 \examples{

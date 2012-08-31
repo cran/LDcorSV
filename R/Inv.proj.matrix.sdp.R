@@ -1,7 +1,7 @@
 Inv.proj.matrix.sdp <-
 function(matrix){
 
-mat.decomp	      		  =   eigen(matrix,symmetric=TRUE,EISPACK=TRUE)
+mat.decomp	      		  =   eigen(matrix,symmetric=TRUE)
 valpp.mat            	          =   mat.decomp$values
 	
 valpp.mat[which(valpp.mat<0.00001)] =   0

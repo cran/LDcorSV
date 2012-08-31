@@ -78,7 +78,7 @@ If V and S are simultaneously different from NA, the fourth, fifth and sixth col
 
 If Supinfo=TRUE, then the last six columns contain information for both loci : the MAF, the frequency of heterozygous genotype (NA if haplotype data) and the missing value frequency.}
 
-\references{Mangin et al, 2011,  Novel Measures of linkage Disequilibrium that correct for the bias due to population structure and relatedness, Heredity.}
+\references{Mangin et al, 2012,  Novel Measures of linkage Disequilibrium that correct for the bias due to population structure and relatedness, Heredity.}
 
 \author{David Desrousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
 

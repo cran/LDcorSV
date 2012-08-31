@@ -22,8 +22,8 @@
 
 \tabular{ll}{
 Package: \tab LDcorSV\cr
-Version: 1.1
-Creation date: \tab 2012-01-30\cr
+Version: 1.2
+Creation date: \tab 2012-08-31\cr
 }
 
 
@@ -34,9 +34,9 @@ Creation date: \tab 2012-01-30\cr
 
 Maintainer: Brigitte.Mangin@toulouse.inra.fr
 }
-\references{Mangin et al, 2011,  Novel Measures of linkage Disequilibrium that correct for the bias due to population structure and relatedness, Heredity.}
+\references{Mangin et al, 2012,  Novel Measures of linkage Disequilibrium that correct for the bias due to population structure and relatedness, Heredity.}
 
 \keyword{ package }
-\seealso{}
+
 
 
