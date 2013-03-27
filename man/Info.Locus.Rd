@@ -21,7 +21,7 @@
 \value{The returned value is a numeric vector of three values which are respectively the minor allelic frequency, the  frequency of heterozygous genotypes (NA if haplotype data) and the missing value frequency.}
 
 
-\author{David Desrousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin}
+\author{David Desrousseaux, Florian Sandron, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin}
 
 
 \examples{

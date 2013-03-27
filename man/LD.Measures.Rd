@@ -15,7 +15,7 @@
 
 This function gives extra informations on the studied loci.}
 
-\usage{LD.Measures(donnees, V = NA, S = NA, data = "G", supinfo = FALSE)}
+\usage{LD.Measures(donnees, V = NA, S = NA, data = "G", supinfo = FALSE, na.presence=TRUE)}
 
 \arguments{
   \item{donnees}{Numeric matrix (N x M), where N is the number of genotypes (or haplotypes) and M is the number of markers.
@@ -60,9 +60,16 @@ No missing value.}
 
   \item{supinfo}{Boolean indicating whether you wish to get information about the loci.
 
-	If Supinfo=TRUE, for each locus, the Minor Allelic Frequency (MAF), the frequency of heterozygous genotypes (only if the data are genotypes) and the missing value frequency are computed.
+	If supinfo=TRUE, for each locus, the Minor Allelic Frequency (MAF), the frequency of heterozygous genotypes (only if the data are genotypes) and the missing value frequency are computed.
 
  By default, supinfo=FALSE.}
+
+ 
+ \item{na.presence}{Boolean indicating the presence of missing values in data.
+  
+  If na.presence=FALSE (no missing data), computation of \eqn{r^2_V} and \eqn{r^2_{VS}} is largely optimized.
+  
+  By default, na.presence=TRUE.}
 
 	}
 
@@ -80,7 +87,7 @@ If Supinfo=TRUE, then the last six columns contain information for both loci : t
 
 \references{Mangin et al, 2012,  Novel Measures of linkage Disequilibrium that correct for the bias due to population structure and relatedness, Heredity.}
 
-\author{David Desrousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
+\author{David Desrousseaux, Florian Sandron, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
 
 
 
@@ -91,7 +98,7 @@ Geno<-data.test[[1]]
 Geno.test<-Geno[,1:5]
 V.WAIS<-data.test[[2]]
 S.2POP<-data.test[[3]]
-LD<-LD.Measures(Geno.test,V=V.WAIS,S=S.2POP,data ="G",supinfo=TRUE)
+LD<-LD.Measures(Geno.test,V=V.WAIS,S=S.2POP,data ="G",supinfo=TRUE,na.presence=TRUE)
 LD
 }
 

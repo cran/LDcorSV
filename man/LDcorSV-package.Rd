@@ -15,21 +15,21 @@
 
 - \code{Measure.R2VS}: \eqn{r^2} corrected by both the relatedness of genotyped individuals  and the structure of the sample (\eqn{r^2_VS}).
 
-- \code{LD.measure}: this function computes the four measures of  linkage disequilibrium (\eqn{r^2},\eqn{r^2_V},\eqn{r^2_S} and \eqn{r^2_{VS}}) for a set of loci and gives extra information about them.}
+- \code{LD.Measures}: this function computes the four measures of  linkage disequilibrium (\eqn{r^2},\eqn{r^2_V},\eqn{r^2_S} and \eqn{r^2_{VS}}) for a set of loci and gives extra information about them.}
 
 
 \details{
 
 \tabular{ll}{
 Package: \tab LDcorSV\cr
-Version: 1.2
-Creation date: \tab 2012-08-31\cr
+Version: 1.3
+Creation date: \tab 2013-03-27\cr
 }
 
 
 }
 
-\author{David Desrousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin 
+\author{David Desrousseaux, Florian Sandron, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin 
 
 
 Maintainer: Brigitte.Mangin@toulouse.inra.fr

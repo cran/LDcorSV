@@ -6,7 +6,7 @@
 
 }
 \usage{
-Measure.R2VS(biloci, V, struc)
+Measure.R2VS(biloci, V, struc, na.presence=TRUE, V_inv=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -41,8 +41,16 @@ Column names correspond to the ID of sub-populations.
 
 The matrix must be inversible, if the structure is with P sub-populations, only P-1 columns are expected.
 
-No missing value.
-}
+No missing value.}
+
+
+ \item{na.presence}{Boolean indicating the presence of missing values in data.
+  
+  If na.presence=FALSE (no missing data), computation of \eqn{r^2_V} and \eqn{r^2_{VS}} is largely optimized.
+  
+  By default, na.presence=TRUE.}
+  
+  \item{V_inv}{Should stay NULL}
 }
 
 \value{The returned value is the estimated value of the linkage disequilibrium measure corrected by both the relatedness of genotyped individuals and  the structure of the sample or NA if less than 5 individuals have non-missing data at both loci.
@@ -50,7 +58,7 @@ No missing value.
 }
 \references{Mangin et al, 2012,  Novel measures of linkage disequilibrium that correct for the bias due to population structure and relatedness, Heredity.}
 
-\author{David Desrousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
+\author{David Desrousseaux, Florian Sandron, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
 
 
 

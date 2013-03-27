@@ -14,7 +14,7 @@
 \value{The returned value is the pseudo-inverse matrix.}
 
 
-\author{ David Desrousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
+\author{ David Desrousseaux, Florian Sandron, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
 
 
 

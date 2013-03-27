@@ -6,7 +6,7 @@
 
 \description{This function estimates the novel measure of linkage disequilibrium which is corrected by the relatedness of genotyped individuals.}
 
-\usage{Measure.R2V(biloci, V)}
+\usage{Measure.R2V(biloci, V, na.presence=TRUE, V_inv=NULL)}
 
 \arguments{
 
@@ -30,13 +30,21 @@ Column names correspond to the  ID of markers.}
 
 No missing value.}
 
-	}
+
+ \item{na.presence}{Boolean indicating the presence of missing values in data.
+  
+  If na.presence=FALSE (no missing data), computation of \eqn{r^2_V} and \eqn{r^2_{VS}} is largely optimized.
+  
+  By default, na.presence=TRUE.}
+  
+  \item{V_inv}{Should stay NULL.}
+}
 
 \value{The returned value is the estimated value of the measure of linkage disequilibrium corrected by the relatedness of genotyped individuals or NA if less than 5 individuals have non-missing data at both loci.}
 
 
 \references{Mangin et al, 2012,  Novel measures of linkage disequilibrium that correct for the bias due to population structure and relatedness.}
-\author{David Desrousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
+\author{David Desrousseaux, Florian Sandron, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
 
 
 

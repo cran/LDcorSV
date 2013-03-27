@@ -5,7 +5,7 @@
 
 \description{This function  estimates the usual measure of linkage disequilibrium (\eqn{r^2})  between two loci.}
 
-\usage{Measure.R2(biloci)}
+\usage{Measure.R2(biloci, na.presence=TRUE)}
 
 
 \arguments{
@@ -22,6 +22,11 @@ Rows names correspond to the  ID of individuals.
 
 Columns names correspond to the  ID of markers.}
 
+  \item{na.presence}{Boolean indicating the presence of missing values in data.
+  
+  If na.presence=FALSE (no missing data), computation of \eqn{r^2_V} and \eqn{r^2_{VS}} is largely optimized.
+  
+  By default, na.presence=TRUE.}
 	  }
 
 
@@ -31,7 +36,7 @@ Columns names correspond to the  ID of markers.}
 
 \references{Hill, W.G, Robertson, A., 1968. Linkage diseqilibrium in finite populations. Theoretical and Applied Genetics 38, 226-231.}
 
-\author{David Desrousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
+\author{David Desrousseaux, Florian Sandron, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
 
 
 

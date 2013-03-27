@@ -5,7 +5,7 @@
 
 \description{This function estimates the novel measure of linkage disequilibrium which is corrected by the structure of the sample.}
 
-\usage{Measure.R2S(biloci, struc)}
+\usage{Measure.R2S(biloci, struc, na.presence=TRUE)}
 
 \arguments{
   \item{biloci}{Numeric matrix (N x 2), where N is the number of genotypes (or haplotypes)
@@ -32,13 +32,19 @@ Column names correspond to the ID of sub-populations.
 The matrix must be inversible, if the structure is with P sub-populations, only P-1 columns are expected.
 
 No missing value. }
+
+  \item{na.presence}{Boolean indicating the presence of missing values in data.
+  
+  If na.presence=FALSE (no missing data), computation of \eqn{r^2_V} and \eqn{r^2_{VS}} is largely optimized.
+  
+  By default, na.presence=TRUE.}
 	}
 
 
 \value{The returned value is the estimated value of the measure of linkage disequilibrium  corrected by  the structure of the sample or NA if less than 5 individuals have non-missing data at both loci.}
 
 \references{Mangin et al, 2012,  Novel measures of linkage disequilibrium that correct for the bias due to population structure and relatedness, Heredity.}
-\author{David Desrousseaux, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
+\author{David Desrousseaux, Florian Sandron, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
 
 
 

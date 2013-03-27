@@ -1,11 +1,11 @@
 Package: LDcorSV
 Type: Package
 Title: LDcorSV
-Version: 1.2
-Date: 2012-08-31
-Depends: MASS
-Author: David Desrousseaux, Aurelie Siberchicot, Christine
-        Cierco-Ayrolles and Brigitte Mangin
+Version: 1.3
+Date: 2013-03-27
+Depends: parallel, MASS
+Author: David Desrousseaux, Florian Sandron, Aurelie Siberchicot,
+        Christine Cierco-Ayrolles and Brigitte Mangin
 Maintainer: Brigitte Mangin <Brigitte.Mangin@toulouse.inra.fr>
 Description: The package provides a set of functions which aim is to
         propose four measures of linkage disequilibrium: the usual r^2
@@ -16,6 +16,7 @@ Description: The package provides a set of functions which aim is to
         of the sample).
 License: GPL (>= 2)
 LazyLoad: yes
-Packaged: 2012-08-31 09:26:36 UTC; mangin
+Packaged: 2013-03-27 13:00:24 UTC; flsandron
+NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2013-02-11 08:56:28
+Date/Publication: 2013-04-11 12:06:10
