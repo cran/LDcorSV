@@ -37,10 +37,10 @@ function(donnees,V=NA,S=NA,data="G",supinfo=FALSE,na.presence=TRUE){
 	if(data=="H"){if(max(donnees[!is.na(donnees)])>1 | min(donnees[!is.na(donnees)])<0)
 	{return(print("ERROR: haplotype must be a numeric matrix with integer values between 0 and 1"))}}
 	
-	if(length(unique(is.na(S)))==2)
+	if(length(unique.default(is.na(S)))==2)
 	{return(print("ERROR: missing values are not allowed in the structure matrix"))}
 	
-	if(length(unique(is.na(V)))==2)
+	if(length(unique.default(is.na(V)))==2)
 	{return(print("ERROR: missing values are not allowed in the genetic variance-covariance matrix"))}
 	
 	S.yes=all(is.na(S))

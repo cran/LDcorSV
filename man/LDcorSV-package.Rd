@@ -22,7 +22,7 @@
 
 \tabular{ll}{
 Package: \tab LDcorSV\cr
-Version: 1.3
+Version: 1.3.1
 Creation date: \tab 2013-03-27\cr
 }
 
