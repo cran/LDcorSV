@@ -1,1 +1,10 @@
-exportPattern("^[[:alpha:]]+")
+importFrom("stats", "cov", "na.action", "na.omit", "var")
+importFrom("parallel", "mclapply")
+
+export("Info.Locus",
+       "Inv.proj.matrix.sdp",
+       "LD.Measures",
+       "Measure.R2",
+       "Measure.R2S",
+       "Measure.R2V",
+       "Measure.R2VS")

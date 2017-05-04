@@ -22,8 +22,6 @@
 
 \tabular{ll}{
 Package: \tab LDcorSV\cr
-Version: 1.3.1
-Creation date: \tab 2013-03-27\cr
 }
 
 
@@ -31,8 +29,7 @@ Creation date: \tab 2013-03-27\cr
 
 \author{David Desrousseaux, Florian Sandron, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin 
 
-
-Maintainer: Brigitte.Mangin@toulouse.inra.fr
+Maintainer: aurelie.siberchicot@univ-lyon1.fr
 }
 \references{Mangin et al, 2012,  Novel Measures of linkage Disequilibrium that correct for the bias due to population structure and relatedness, Heredity.}
 
