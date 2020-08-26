@@ -2,12 +2,12 @@ Measure.R2VS <- function(biloci, V, struc, na.presence = TRUE, V_inv = NULL) {
     CALC   <- TRUE
     M.r2vs <- NA
     
-    if (na.presence == TRUE) {
-        if (any(is.na(biloci) == TRUE)) {
+    if (na.presence) {
+        if (any(is.na(biloci))) {
             ligne <- na.action(na.omit(biloci))
             # less than 5 non-missing data
             CALC <- ( length(ligne) <= (nrow(biloci) - 5))
-            if (CALC == TRUE) {
+            if (CALC) {
                 biloci <- biloci[-ligne, ]
                 struc  <- struc[-ligne, ]
                 V      <- V[-ligne, -ligne]
@@ -15,7 +15,7 @@ Measure.R2VS <- function(biloci, V, struc, na.presence = TRUE, V_inv = NULL) {
         }
     }
     
-    if (CALC == TRUE) {
+    if (CALC) {
         if (is.null(V_inv)) {
             V_inv           <- Inv.proj.matrix.sdp(V) 
             rownames(V_inv) <- rownames(V)
@@ -23,7 +23,7 @@ Measure.R2VS <- function(biloci, V, struc, na.presence = TRUE, V_inv = NULL) {
         }
         
         DATA          <- as.matrix(cbind(biloci, struc))
-        FACT          <- (rep(1, nrow(DATA)) / rep(1, nrow(DATA)) %*% V_inv %*% rep(1, nrow(DATA))) %*% t(rep(1, nrow(DATA))) %*% V_inv
+        FACT          <- (rep(1, nrow(DATA)) / c(rep(1, nrow(DATA)) %*% V_inv %*% rep(1, nrow(DATA)))) %*% t(rep(1, nrow(DATA))) %*% V_inv
         MAT           <- DATA - FACT %*% DATA
         SIG           <- t(MAT) %*% V_inv %*% MAT
         

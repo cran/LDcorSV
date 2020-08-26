@@ -2,18 +2,18 @@ Measure.R2 <- function(biloci, na.presence = TRUE) {
     CALC <- TRUE
     M.r2 <- NA
     
-    if (na.presence == TRUE) {
-        if (any(is.na(biloci) == TRUE)) {
+    if (na.presence) {
+        if (any(is.na(biloci))) {
             ligne <- na.action(na.omit(biloci))
             # less than 5 non-missing data
             CALC <- (length(ligne) <= (nrow(biloci) - 5))
-            if (CALC == TRUE) { 
+            if (CALC) { 
                 biloci <- biloci[-ligne, ]
             }
         }
     }
     
-    if (CALC == TRUE) {
+    if (CALC) {
         SIG <- var(biloci)
         ifelse((SIG[1, 1] < 0.0000001) | (SIG[2, 2] < 0.0000001), 
                M.r2 <- 0, 

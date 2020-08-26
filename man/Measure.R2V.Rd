@@ -1,7 +1,5 @@
 \name{Measure.R2V}
-
 \alias{Measure.R2V}
-
 \title{r^2_V measure}
 
 \description{This function estimates the novel measure of linkage disequilibrium which is corrected by the relatedness of genotyped individuals.}
@@ -18,9 +16,9 @@ Matrix values are the allelic doses:
 
 	- (0,1) for haplotypes.
 
-Row names correspond to the  ID of individuals.
+Row names correspond to the ID of individuals.
 
-Column names correspond to the  ID of markers.}
+Column names correspond to the ID of markers.}
 
   \item{V}{Numeric matrix (N x N), where N is the number of genotypes (or haplotypes).
 	
@@ -29,7 +27,6 @@ Column names correspond to the  ID of markers.}
 	Rows and columns names must correspond to the ID of individuals and must be ranged in the same order as in the biloci matrix.
 
 No missing value.}
-
 
  \item{na.presence}{Boolean indicating the presence of missing values in data.
   
@@ -42,11 +39,13 @@ No missing value.}
 
 \value{The returned value is the estimated value of the measure of linkage disequilibrium corrected by the relatedness of genotyped individuals or NA if less than 5 individuals have non-missing data at both loci.}
 
+\references{Mangin, B., Siberchicot, A., Nicolas, S., Doligez, A., This, P., Cierco-Ayrolles, C. (2012). Novel measures of linkage disequilibrium that correct the bias due to population structure and relatedness. Heredity, 108 (3), 285-291. DOI: 10.1038/hdy.2011.73}
 
-\references{Mangin et al, 2012,  Novel measures of linkage disequilibrium that correct for the bias due to population structure and relatedness.}
-\author{David Desrousseaux, Florian Sandron, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
+\author{David Desrousseaux, Florian Sandron, Aurélie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin}
 
-
-
-
-
+\examples{
+data(data.test)
+Geno <- data.test[[1]]
+V.WAIS <- data.test[[2]]
+Measure.R2V(Geno, V.WAIS)
+}

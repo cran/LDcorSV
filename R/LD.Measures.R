@@ -20,12 +20,12 @@ LD.Measures <- function(donnees, V = NA, S = NA, data = "G", supinfo = FALSE, na
     
     is.wholenumber <- function(x, tol = .Machine$double.eps^0.5)  {abs(x - round(x)) < tol}
     
-    if(is.null(rownames(donnees)) == TRUE | is.null(colnames(donnees)) == TRUE)
+    if(is.null(rownames(donnees)) | is.null(colnames(donnees)))
         return(print("ERROR: genotype data must have row and column names"))
     
     mark <- colnames(donnees)
     
-    if(all(is.wholenumber(donnees[!is.na(donnees)]) == FALSE))
+    if(all(!is.wholenumber(donnees[!is.na(donnees)])))
         return(print("ERROR: haplotype or genotype data must be a numeric matrix with integer values"))
     
     if(data == "G")
@@ -45,19 +45,19 @@ LD.Measures <- function(donnees, V = NA, S = NA, data = "G", supinfo = FALSE, na
     S.yes <- all(is.na(S))
     V.yes <- all(is.na(V))
     
-    if (S.yes == FALSE) {
+    if (!S.yes) {
         if (max(S) > 1 | min(S) < 0)
             return(print("ERROR: the structure matrix must be a numeric matrix with values between 0 and 1"))
-        if (is.null(colnames(S)) == TRUE | is.null(rownames(S)) == TRUE)
+        if (is.null(colnames(S)) | is.null(rownames(S)))
             return(print("ERROR: structure matrix  must have row and column names"))
     }
     
-    if (V.yes == FALSE) {
-        if (is.null(colnames(V)) == TRUE | is.null(rownames(V)) == TRUE)
+    if (!V.yes) {
+        if (is.null(colnames(V)) | is.null(rownames(V)))
             return(print("ERROR: genotypic variance-covariance matrix  must have row and column names"))
     }
     
-    if (S.yes == FALSE & V.yes == FALSE) {
+    if (!S.yes & !V.yes) {
         ID    <- rownames(donnees)
         ID.S  <- rownames(S)
         ID.Vr <- rownames(V)
@@ -75,7 +75,7 @@ LD.Measures <- function(donnees, V = NA, S = NA, data = "G", supinfo = FALSE, na
         S                 <- as.data.frame(alignS[, (ncol(donnees) + 2):ncol(alignS)])
         rownames(S)       <- alignS[, 1]
         colnames(S)       <- colnames(alignS)[(ncol(donnees)+2):ncol(alignS)]
-        alignV            <- merge(V, donnees,by.x=0,by.y=0,sort=FALSE)
+        alignV            <- merge(V, donnees, by.x = 0, by.y = 0, sort = FALSE)
         donnees           <- alignV[,(ncol(V)+2):ncol(alignV)]
         rownames(donnees) <- alignV[,1]
         rownames(alignV)  <- alignV[,1]
@@ -88,7 +88,7 @@ LD.Measures <- function(donnees, V = NA, S = NA, data = "G", supinfo = FALSE, na
         S                 <- as.matrix(S)
         
     } else {
-        if (S.yes == FALSE) {
+        if (!S.yes) {
             ID   <- rownames(donnees)
             ID.S <- rownames(S)
             
@@ -104,7 +104,7 @@ LD.Measures <- function(donnees, V = NA, S = NA, data = "G", supinfo = FALSE, na
             S                 <- as.matrix(S)
         }
         
-        if (V.yes == FALSE) {
+        if (!V.yes) {
             ID    <- rownames(donnees)
             ID.Vr <- rownames(V)
             ID.Vc <- colnames(V)
@@ -127,11 +127,11 @@ LD.Measures <- function(donnees, V = NA, S = NA, data = "G", supinfo = FALSE, na
     
     donnees <- as.matrix(donnees)
     
-    if (supinfo == TRUE)
+    if (supinfo)
         info <- apply(donnees, data = data, 2, Info.Locus)
     
     
-    if (na.presence == FALSE & V.yes == FALSE) {
+    if (!na.presence & !V.yes) {
         V_inv           <- Inv.proj.matrix.sdp(V) 
         rownames(V_inv) <- rownames(V)
         colnames(V_inv) <- colnames(V)
@@ -145,25 +145,25 @@ LD.Measures <- function(donnees, V = NA, S = NA, data = "G", supinfo = FALSE, na
             loc1 <- c(loc1, mark[i])
             loc2 <- c(loc2, mark[j])
             
-            options(warn = -1)
-            M.r2 <- Measure.R2(biloci = lij, na.presence)
-            options(warn = 0)
+            # options(warn = -1)
+            M.r2 <- Measure.R2(biloci = lij, na.presence = na.presence)
+            # options(warn = 0)
             
-            if (S.yes == FALSE)
-                M.r2s <- Measure.R2S(biloci = lij, struc = S, na.presence)
+            if (!S.yes)
+                M.r2s <- Measure.R2S(biloci = lij, struc = S, na.presence = na.presence)
             
-            if (V.yes == FALSE) {
-                if(na.presence == FALSE)
-                    M.r2v <- Measure.R2V(biloci = lij, V = V, na.presence, V_inv)
+            if (!V.yes) {
+                if(!na.presence)
+                    M.r2v <- Measure.R2V(biloci = lij, V = V, na.presence = na.presence, V_inv = V_inv)
                 else
-                    M.r2v <- Measure.R2V(biloci = lij, V = V, na.presence)
+                    M.r2v <- Measure.R2V(biloci = lij, V = V, na.presence = na.presence)
             }
             
-            if (S.yes == FALSE & V.yes == FALSE) {
-                if(na.presence == FALSE)
-                    M.r2vs <- Measure.R2VS(biloci = lij, V = V, struc = S, na.presence, V_inv)
+            if (!S.yes & !V.yes) {
+                if(!na.presence)
+                    M.r2vs <- Measure.R2VS(biloci = lij, V = V, struc = S, na.presence = na.presence, V_inv = V_inv)
                 else
-                    M.r2vs <- Measure.R2VS(biloci = lij, V = V, struc = S, na.presence)
+                    M.r2vs <- Measure.R2VS(biloci = lij, V = V, struc = S, na.presence = na.presence)
             }
             
             r2   <- c(r2, M.r2)
@@ -171,7 +171,7 @@ LD.Measures <- function(donnees, V = NA, S = NA, data = "G", supinfo = FALSE, na
             r2v  <- c(r2v, M.r2v)
             r2vs <- c(r2vs, M.r2vs)
             
-            if (supinfo == TRUE) {
+            if (supinfo) {
                 M.MAF.loc1        <- NA
                 M.heterofreq.loc1 <- NA
                 M.NAfreq.loc1     <- NA
@@ -206,48 +206,32 @@ LD.Measures <- function(donnees, V = NA, S = NA, data = "G", supinfo = FALSE, na
     
     RES <- matrix(unlist(RES), nrow = length(RES[[1]][, 1]))
     
-    
-    if (S.yes == FALSE & V.yes == FALSE) {
-        result <- data.frame(RES[1, ], RES[2, ], RES[3, ], RES[5, ], RES[4, ], RES[6, ])
+    if (!S.yes & !V.yes) {
+        result <- data.frame(RES[1, ], RES[2, ], as.numeric(RES[3, ]), as.numeric(RES[5, ]), as.numeric(RES[4, ]), as.numeric(RES[6, ]))
         colnames(result) <- c("loc1", "loc2", "r2", "r2v", "r2s", "r2vs")
-        result[, 6] <- as.numeric(levels(result[, 6]))[result[, 6]]
-        result[, 5] <- as.numeric(levels(result[, 5]))[result[, 5]]
-        result[, 4] <- as.numeric(levels(result[, 4]))[result[, 4]]
-        result[, 3] <- as.numeric(levels(result[, 3]))[result[, 3]]
         
     } else {
-        if (S.yes == FALSE) {
-            result <- data.frame(RES[1, ], RES[2, ], RES[3, ], RES[4, ])
+        if (!S.yes) {
+            result <- data.frame(RES[1, ], RES[2, ], as.numeric(RES[3, ]), as.numeric(RES[4, ]))
             colnames(result) <- c("loc1","loc2", "r2", "r2s")
-            result[, 4] <- as.numeric(levels(result[, 4]))[result[, 4]]
-            result[, 3] <- as.numeric(levels(result[, 3]))[result[, 3]]
         } else {
-            if (V.yes == FALSE) {
-                result <- data.frame(RES[1, ], RES[2, ], RES[3, ], RES[5, ])
+            if (!V.yes) {
+                result <- data.frame(RES[1, ], RES[2, ], as.numeric(RES[3, ]), as.numeric(RES[5, ]))
                 colnames(result) <- c("loc1", "loc2", "r2", "r2v")
-                result[, 4] <- as.numeric(levels(result[, 4]))[result[, 4]]
-                result[, 3] <- as.numeric(levels(result[, 3]))[result[, 3]]
             } else {
-                result <- data.frame(RES[1, ], RES[2, ], RES[3, ])
+                result <- data.frame(RES[1, ], RES[2, ], as.numeric(RES[3, ]))
                 colnames(result) <- c("loc1", "loc2", "r2")
-                result[, 3] <- as.numeric(levels(result[, 3]))[result[, 3]]
             }
         }
     }
     
-    if (supinfo == TRUE) {
-        Info <- data.frame(RES[7, ], RES[8, ], RES[9, ], RES[10, ], RES[11, ], RES[12, ])
+    if (supinfo) {
+        Info <- data.frame(as.numeric(RES[7, ]), as.numeric(RES[8, ]), as.numeric(RES[9, ]), as.numeric(RES[10, ]), as.numeric(RES[11, ]), as.numeric(RES[12, ]))
         result <- as.data.frame(c(result, Info))
         l <- length(colnames(result))
         colnames(result)[(l - 5):(l)] <- c("MAF.loc1", "heterofreq.loc1", "NAfreq.loc1",
                                            "MAF.loc2", "heterofreq.loc2", "NAfreq.loc2")
         
-        result[, l]<-as.numeric(levels(result[,l]))[result[,l]]
-        result[, l - 1] <- as.numeric(levels(result[, l - 1]))[result[, l - 1]]
-        result[, l - 2] <- as.numeric(levels(result[, l - 2]))[result[, l - 2]]
-        result[, l - 3] <- as.numeric(levels(result[, l - 3]))[result[, l - 3]]
-        result[, l - 4] <- as.numeric(levels(result[, l - 4]))[result[, l - 4]]
-        result[, l - 5] <- as.numeric(levels(result[, l - 5]))[result[, l - 5]]
     }	
     result <- as.data.frame(result)
     result

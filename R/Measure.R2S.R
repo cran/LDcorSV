@@ -2,19 +2,19 @@ Measure.R2S <- function(biloci, struc, na.presence = TRUE) {
     CALC  <- TRUE
     M.r2s <- NA
     
-    if (na.presence == TRUE) {
-        if (any(is.na(biloci) == TRUE)) {
+    if (na.presence) {
+        if (any(is.na(biloci))) {
             ligne <- na.action(na.omit(biloci))
             # less than 5 non-missing data
             CALC <- (length(ligne) <= (nrow(biloci) - 5))
-            if (CALC == TRUE) {
+            if (CALC) {
                 biloci <- biloci[-ligne, ]
                 struc <- struc[-ligne, ]
             }
         }
     }
     
-    if (CALC == TRUE) {
+    if (CALC) {
         sig_biloci			<-	var(biloci)
         sig_struc			<-	var(struc)
         sig_struc_inv		<-   Inv.proj.matrix.sdp(sig_struc)

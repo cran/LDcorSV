@@ -1,14 +1,13 @@
 \name{Measure.R2VS}
 \alias{Measure.R2VS}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{r^2_VS measure}
-\description{This function estimates the novel measure of linkage disequilibrium which is corrected by  both the relatedness of genotyped individuals and  the structure of the sample.
 
+\description{This function estimates the novel measure of linkage disequilibrium which is corrected by  both the relatedness of genotyped individuals and  the structure of the sample.
 }
-\usage{
-Measure.R2VS(biloci, V, struc, na.presence=TRUE, V_inv=NULL)
-}
-%- maybe also 'usage' for other objects documented here.
+
+\usage{Measure.R2VS(biloci, V, struc, na.presence = TRUE, V_inv = NULL)}
+
+
 \arguments{
   \item{biloci}{Numeric matrix (N x 2), where N is the number of genotypes (or haplotypes)
 
@@ -18,9 +17,9 @@ Matrix values are the allelic doses:
 
 	- (0,1) for haplotypes.
 
-Row names correspond to the  ID of individuals.
+Row names correspond to the ID of individuals.
 
-Column names correspond to the  ID of markers.
+Column names correspond to the ID of markers.
 
 }
   \item{V}{Numeric matrix (N x N), where N is the number of genotypes (or haplotypes).
@@ -43,7 +42,6 @@ The matrix must be inversible, if the structure is with P sub-populations, only 
 
 No missing value.}
 
-
  \item{na.presence}{Boolean indicating the presence of missing values in data.
   
   If na.presence=FALSE (no missing data), computation of \eqn{r^2_V} and \eqn{r^2_{VS}} is largely optimized.
@@ -53,18 +51,20 @@ No missing value.}
   \item{V_inv}{Should stay NULL}
 }
 
+
 \value{The returned value is the estimated value of the linkage disequilibrium measure corrected by both the relatedness of genotyped individuals and  the structure of the sample or NA if less than 5 individuals have non-missing data at both loci.
-
 }
-\references{Mangin et al, 2012,  Novel measures of linkage disequilibrium that correct for the bias due to population structure and relatedness, Heredity.}
-
-\author{David Desrousseaux, Florian Sandron, Aurelie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin }
 
 
+\references{Mangin, B., Siberchicot, A., Nicolas, S., Doligez, A., This, P., Cierco-Ayrolles, C. (2012). Novel measures of linkage disequilibrium that correct the bias due to population structure and relatedness. Heredity, 108 (3), 285-291. DOI: 10.1038/hdy.2011.73}
 
 
+\author{David Desrousseaux, Florian Sandron, Aurélie Siberchicot, Christine Cierco-Ayrolles and Brigitte Mangin}
 
-
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-
+\examples{
+data(data.test)
+Geno <- data.test[[1]]
+V.WAIS <- data.test[[2]]
+S.2POP <- data.test[[3]]
+Measure.R2VS(Geno, V.WAIS, S.2POP)
+}
